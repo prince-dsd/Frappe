@@ -1,0 +1,43 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:prettier/recommended",
+    "react-app"
+  ],
+  "rules": {
+    "global-require": "off",
+    "no-restricted-syntax": ["warn", "never"],
+    "no-nested-ternary": "warn",
+    "multiline-ternary": ["warn", "never"],
+    "no-use-before-define": "off",
+    "no-await-in-loop": "off",
+    "no-multiple-empty-lines": ["warn", {"max": 2, "maxBOF": 0, "maxEOF": 1}],
+    "react/jsx-filename-extension": ["warn", {"extensions": [".js", ".jsx"]}],
+    "react/jsx-props-no-spreading": "off",
+    "react/state-in-constructor": "off",
+    "react/static-property-placement": "off",
+    "react/prop-types": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "module-resolver/use-alias": "off",
+    "import/order": ["warn", {"newlines-between": "always-and-inside-groups"}],
+    "import/newline-after-import": "warn",
+    "import/no-extraneous-dependencies": "off",
+
+    "camelcase":"warn",
+    "spaced-comment":"warn",
+    "prefer-destructuring": "warn",
+    "react/self-closing-comp":"warn",
+    "react/no-array-index-key": "warn",
+    "no-shadow":"warn",
+    "comma-dangle": ["warn", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+    }]
+  },
+  "globals": {}
+}
