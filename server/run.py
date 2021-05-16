@@ -5,12 +5,13 @@ flask.helpers._endpoint_from_view_func = flask.scaffold._endpoint_from_view_func
 from flask import Flask, send_from_directory
 from flask_restful import Resource, Api
 from flask.blueprints import Blueprint
+from flask_cors import CORS
 
 import config
 from api.v1 import routes
 
 app = Flask(__name__, static_url_path='', static_folder='../client/build')
-
+CORS(app)
 # Serve React App
 @app.route("/", defaults={'path':''})
 def serve(path):

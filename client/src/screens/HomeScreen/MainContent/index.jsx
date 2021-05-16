@@ -24,13 +24,15 @@ import Pagination from './Pagination/Pagination.component';
 
 import Skeleton from './Skeleton/Skeleton.component';
 
-const MainContent = ({ refProp }) => {
-  const REACT_APP_MOVIES_URL = process.env.REACT_APP_MOVIES_URL;
-  const REACT_APP_TV_URL = process.env.REACT_APP_TV_URL;
-  const REACT_APP_ANIME_URL = process.env.REACT_APP_ANIME_URL;
-  const REACT_APP_NEW_RELEASES_URL = process.env.REACT_APP_NEW_RELEASES_URL;
+import api from '../../../utilities/api';
 
-  const [grid, setGrid] = useState(null);
+const MainContent = ({ refProp }) => {
+  const REACT_APP_MOVIES_URL = '/discover/movies';
+  const REACT_APP_TV_URL = '/discover/tv';
+  const REACT_APP_ANIME_URL = '/discover/anime';
+  const REACT_APP_NEW_RELEASES_URL = '/discover/new';
+
+  const [grid, setGrid] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [apiUrl, setUrl] = useState(REACT_APP_MOVIES_URL);
   const [page, setPage] = useState(1);
@@ -59,17 +61,20 @@ const MainContent = ({ refProp }) => {
     setUrl(REACT_APP_NEW_RELEASES_URL);
   };
 
-  useEffect(() => {
+  const initialize = async () => {
     setLoading(true);
-
-    fetch(`${apiUrl}${page}`)
-      .then((res) => res.json())
-      .then((response) => {
-        setGrid(response.results);
-
-        setLoading(false);
-      })
-      .catch((error) => console.log(error));
+    try {
+      console.log('Main content initialized');
+      const res = await api.get(apiUrl, { params: { page } });
+      console.log(res.data);
+      setGrid(res.data.results);
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+  };
+  useEffect(() => {
+    initialize();
   }, [page, apiUrl]);
   return (
     <MainContentWrapper ref={tabRef}>

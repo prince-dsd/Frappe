@@ -22,8 +22,7 @@ const Home = ({ refProp }) => {
   const [carouselItems, setCarouselItems] = useState(null);
 
   useEffect(() => {
-    const apiUrl =
-      'https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/4/discover/movie/?api_key=06e8cef0db2387c65967847d77165721&page=';
+    const apiUrl = 'https://api.themoviedb.org/4/discover/movie/?api_key=06e8cef0db2387c65967847d77165721&page=';
 
     fetch(`${apiUrl}=1`)
       .then((res) => res.json())
