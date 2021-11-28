@@ -9,8 +9,14 @@
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-scripts": "4.0.3",
     "react-slick": "^0.27.3",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.0",
+    "reselect": "^4.1.4",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
     "styled-icons": "^10.15.0",
@@ -20,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix --ext .js,.ts,.tsx ./src --ignore-path .gitignore",
+    "prettier": "prettier --ignore-path .gitignore --write \"src/**/*.+(js|json|ts|tsx)\""
   },
   "browserslist": {
     "production": [
